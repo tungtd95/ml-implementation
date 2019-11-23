@@ -2,13 +2,17 @@ import matplotlib.pyplot as plt
 
 
 def train(training_data, alpha):
-    theta0 = 10
-    theta1 = 10
+    # init some random value for theta
+    theta0 = 27
+    theta1 = 7
+
     m = len(training_data)
     print("start training...")
     while True:
         theta0_temp = theta0 - alpha * _cal_derivative_partial_theta_0(training_data, theta0, theta1) / m
         theta1_temp = theta1 - alpha * _cal_derivative_partial_theta_1(training_data, theta0, theta1) / m
+
+        # stop training when converged
         if theta0_temp == theta0 or theta1_temp == theta1:
             break
         theta0 = theta0_temp
@@ -17,6 +21,7 @@ def train(training_data, alpha):
     draw(training_data, theta0, theta1)
 
 
+# calculate the partial derivative of theta0
 def _cal_derivative_partial_theta_0(training_data, theta0, theta1):
     sum_derivative = 0
     for (x, y) in training_data:
@@ -24,6 +29,7 @@ def _cal_derivative_partial_theta_0(training_data, theta0, theta1):
     return sum_derivative
 
 
+# calculate the partial derivative of theta1
 def _cal_derivative_partial_theta_1(training_data, theta0, theta1):
     sum_derivative = 0
     for (x, y) in training_data:
