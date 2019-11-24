@@ -1,8 +1,24 @@
 import gradient_descent_multiple_variable as gd
 
-training_data_single_variable = [[1, 2], [1.5, 2.5], [2.5, 4], [3, 3], [3, 4], [4, 3.9], [4.1, 5],
-                                 [5, 4], [6, 5.9], [6, 5], [6.5, 7], [7, 6], [8, 7], [8.1, 9], [5.5, 5],
-                                 [6.5, 7], [7, 5], [7.5, 6], [8, 6.5]]
+training_data_single_variable = [[10, 2],
+                                 [15, 2.5],
+                                 [25, 4],
+                                 [30, 3],
+                                 [30, 4],
+                                 [40, 3.9],
+                                 [41, 5],
+                                 [50, 4],
+                                 [60, 5.9],
+                                 [60, 5],
+                                 [65, 7],
+                                 [70, 6],
+                                 [80, 7],
+                                 [81, 9],
+                                 [55, 5],
+                                 [65, 7],
+                                 [70, 5],
+                                 [75, 6],
+                                 [80, 6.5]]
 
 alpha = 0.0006123
 # for comparing result with gradient_descent_linear_regression
@@ -16,7 +32,7 @@ when turn Feature Scaling off, J(theta) take 23379 milliseconds to converge
 
 * The Feature Scaling and the Learning Rate threshold does not effect anything but reducing training time
 '''
-gd.train(training_data_single_variable, alpha, should_scale=True)
+gd.train(training_data_single_variable, alpha, should_scale=False)
 
 training_data_multiple_variable = [[10, 0.2, 3],
                                    [15, 0.25, 4],
