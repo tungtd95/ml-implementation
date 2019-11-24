@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+import plot_helper as plt
 
 
 def train(training_data, alpha):
@@ -18,7 +18,7 @@ def train(training_data, alpha):
         theta0 = theta0_temp
         theta1 = theta1_temp
     print("result: (theta0, theta1) = ({t1}, {t2})".format(t1=theta0, t2=theta1))
-    draw(training_data, theta0, theta1)
+    plt.draw_single_variable(training_data, theta0, theta1)
 
 
 # calculate the partial derivative of theta0
@@ -35,15 +35,3 @@ def _cal_derivative_partial_theta_1(training_data, theta0, theta1):
     for (x, y) in training_data:
         sum_derivative = sum_derivative + (theta0 + theta1 * x - y) * x
     return sum_derivative
-
-
-def draw(training_data, theta0, theta1):
-    x_data = []
-    y_data = []
-    start_point, end_point = [0, 9], [theta0, theta0 + theta1 * 9]
-    for (x, y) in training_data:
-        x_data.append(x)
-        y_data.append(y)
-    plt.plot(x_data, y_data, 'ro')
-    plt.plot(start_point, end_point)
-    plt.show()
